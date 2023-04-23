@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="../static/style.css">
+<div class="testbox">
+  <h1>Registration</h1>
+
+  <form action="/" id="registration-form">
+    <hr>
+    <label  for="email"><i class="icon-envelope icon"></i></label>
+    <input type="email" name="email" id="email" placeholder="Email" required/>
+    <label  for="name"><i class="icon-user icon"></i></label>
+    <input type="text" name="name" id="name" placeholder="Name" required/>
+    <label  for="password"><i class="icon-shield icon"></i></label>
+    <input type="password" name="password" id="password" placeholder="Password" required/>
+    <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<!--<script>-->
+<!--  const registrationForm = document.getElementById('registration-form');-->
+<!--  console.log(registrationForm);-->
+<!--  registrationForm.addEventListener('submit', onRegisterHandler);-->
+
+<!--  function onRegisterHandler(e) {-->
+<!--    e.preventDefault();-->
+<!--    const form = e.target;-->
+<!--    const data = new FormData(form);-->
+<!--    createUser(data)-->
+<!--  }-->
+
+
+
+<!--  async function createUser(userFormData) {-->
+<!--    const userJSON = JSON.stringify(Object.fromEntries(userFormData));-->
+<!--    const settings = {-->
+<!--      method: 'POST',-->
+<!--      cache: 'no-cache',-->
+<!--      mode : 'cors',-->
+<!--      headers: {-->
+<!--        'Content-Type': 'application/json'-->
+<!--      },-->
+<!--      body: userJSON-->
+<!--    };-->
+<!--    const baseUrl = 'http://localhost:8080';-->
+<!--    const response = await fetch(baseUrl + '/users', settings);-->
+<!--    const responseData = await response.json();-->
+
+<!--    console.log(responseData);-->
+<!--  }-->
+<!--</script>-->
+<script src="../static/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</body>
+</html>
