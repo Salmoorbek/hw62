@@ -8,7 +8,8 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="../static/style.css">
-<div class="testbox">
+<div class="testbox" >
+  <img src="../static/microgram.jpg" alt="microgram" style="width: 100px; padding-left: 120px; padding-top: 10px">
   <h1>Registration</h1>
 
   <form action="/" id="registration-form">
@@ -23,39 +24,6 @@
     <button type="submit">Register</button>
   </form>
 </div>
-
-<!--<script>-->
-<!--  const registrationForm = document.getElementById('registration-form');-->
-<!--  console.log(registrationForm);-->
-<!--  registrationForm.addEventListener('submit', onRegisterHandler);-->
-
-<!--  function onRegisterHandler(e) {-->
-<!--    e.preventDefault();-->
-<!--    const form = e.target;-->
-<!--    const data = new FormData(form);-->
-<!--    createUser(data)-->
-<!--  }-->
-
-
-
-<!--  async function createUser(userFormData) {-->
-<!--    const userJSON = JSON.stringify(Object.fromEntries(userFormData));-->
-<!--    const settings = {-->
-<!--      method: 'POST',-->
-<!--      cache: 'no-cache',-->
-<!--      mode : 'cors',-->
-<!--      headers: {-->
-<!--        'Content-Type': 'application/json'-->
-<!--      },-->
-<!--      body: userJSON-->
-<!--    };-->
-<!--    const baseUrl = 'http://localhost:8080';-->
-<!--    const response = await fetch(baseUrl + '/users', settings);-->
-<!--    const responseData = await response.json();-->
-
-<!--    console.log(responseData);-->
-<!--  }-->
-<!--</script>-->
 <script src="../static/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </body>
