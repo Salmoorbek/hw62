@@ -1,11 +1,11 @@
 const registrationForm = document.getElementById('registration-form');
 registrationForm.addEventListener('submit', onRegisterHandler);
-
 function onRegisterHandler(e) {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
     createUser(data);
+    registrationForm.reset();
 }
 
 
