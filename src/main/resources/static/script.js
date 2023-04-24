@@ -31,8 +31,9 @@ async function createUser(userFormData) {
             return;
         }
         console.log(responseData);
+        alert("Вы зарегистрировались!!!");
     } catch (error) {
-        console.error('An error occurred:', error);
-        alert("An error occurred, please try again.");
+        console.error('Произошла ошибка:', error);
+        alert("Такой пользователь уже существует!!!");
     }
 }
