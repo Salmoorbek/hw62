@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .parent {
+            position: relative;
+        }
+
+        img {
+            width: 1100px;
+            display: block;
+            margin: auto;
+        }
+        .registration-button {
+            position: absolute;
+            top: 5%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            display: block;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .registration-button:hover {
+            background-color: #e60000;
+        }
+    </style>
 </head>
 <body>
-<a href="./registration.html">registration</a>
+<div class="parent">
+    <img src="../static/microgram.jpg" alt="microgram">
+    <a href="./registration.html" class="registration-button">Registration</a>
+</div>
 </body>
 </html>
