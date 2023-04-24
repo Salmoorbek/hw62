@@ -38,8 +38,10 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody User user) {
-        System.out.println(user);
-        UserDto registeredUser = userService.register(user.getName(), user.getEmail(), user.getPassword());
-        return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+        if (userService.checkUser(user.getEmail())){
+            return new ResponseEntity<>(userService.register(user.getName(), user.getEmail(), user.getPassword()), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
     }
 }

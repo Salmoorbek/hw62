@@ -46,7 +46,6 @@ public class PublicationService {
         return PublicationDto.from(publication);
     }
     public boolean deletePublication(Long commentId) {
-        //TODO recalculate movie rating before delete
         publicationDao.deleteById(commentId);
         return true;
     }

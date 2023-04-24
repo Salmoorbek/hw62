@@ -23,8 +23,16 @@ async function createUser(userFormData) {
         body: userJSON
     };
     const baseUrl = 'http://localhost:8080';
-    const response = await fetch(baseUrl + '/users/register', settings);
-    const responseData = await response.json();
-
-    console.log(responseData);
+    try {
+        const response = await fetch(baseUrl + '/users/register', settings);
+        const responseData = await response.json();
+        if (!userFormData || userFormData.get('email').length === 0) {
+            alert("error");
+            return;
+        }
+        console.log(responseData);
+    } catch (error) {
+        console.error('An error occurred:', error);
+        alert("An error occurred, please try again.");
+    }
 }

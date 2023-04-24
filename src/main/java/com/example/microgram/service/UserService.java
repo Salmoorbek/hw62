@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 
 @Service
 @RequiredArgsConstructor
@@ -49,6 +51,14 @@ public class UserService {
 
         userDao.register(usr);
         return UserDto.from(usr);
+    }
+    public boolean checkUser(String email){
+        for (int i = 0; i < userDao.getAllUsers().size(); i++) {
+            if(Objects.equals(email, userDao.getAllUsers().get(i).getEmail())){
+                return false;
+            }
+        }
+        return true;
     }
 }
 

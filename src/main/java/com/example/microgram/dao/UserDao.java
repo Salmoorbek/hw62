@@ -116,8 +116,8 @@ public class UserDao extends BaseDao{
         });
     }
 
-    public List<UserDto> getAllUsers() {
+    public List<User> getAllUsers() {
         String sql = "SELECT * FROM users";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(UserDto.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
 }
