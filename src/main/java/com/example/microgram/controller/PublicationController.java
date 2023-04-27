@@ -26,7 +26,7 @@ public class PublicationController {
     public ResponseEntity<List<PublicationDto>> takePublicationsForUserBySubscriptions(@PathVariable String userId){
         return new ResponseEntity<>(publicationsService.getPublicationsForUserBySubscriptions(Integer.parseInt(userId)), HttpStatus.OK);
     }
-    @PostMapping("/{image}/{description}")
+    @PostMapping("/{img}/{description}")
     public PublicationDto addPublication(@PathVariable String image, @PathVariable String description, Authentication authentication){
         return publicationsService.addPublication(image, description, authentication);
     }

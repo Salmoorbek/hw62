@@ -78,7 +78,7 @@ async function getPosts() {
         postActions.appendChild(commentsToggle);
 
         const title = document.createElement('h3');
-        title.textContent = post.title;
+        title.textContent = post.description;
 
         const text = document.createElement('p');
         text.textContent = post.body;
@@ -178,25 +178,6 @@ function createCommentFormElement(post) {
     form.appendChild(submitButton);
 
     return form;
-}
-
-async function sendData(comment) {
-    const url = `https://localhost:8080/comments`;
-
-    const response = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-            postId: comment.postId,
-            name: comment.name,
-            email: comment.email,
-            body: comment.body
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
-
-    return await response.json();
 }
 
 
@@ -303,5 +284,6 @@ closeButton.addEventListener("click", function () {
     myElement.hidden = false
     splashScreen.style.display = 'block';
     mainBlock.style.display = 'none';
+    localStorage.removeItem('user');
     localStorage.clear()
 })
