@@ -7,7 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:63343")
@@ -31,10 +34,6 @@ public class UserController {
     public ResponseEntity<String> isRegistered(@PathVariable String email) {
         return new ResponseEntity<>(userService.isRegisteredEmail(email), HttpStatus.OK);
     }
-    @GetMapping("/login/{accName}/{password}")
-    public ResponseEntity<String> isLogin(@PathVariable String accName, @PathVariable String password) {
-        return new ResponseEntity<>(userService.login(accName, password), HttpStatus.OK);
-    }
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody User user) {
@@ -43,5 +42,26 @@ public class UserController {
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+    }
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
+    }
+
+    @CrossOrigin
+    @PostMapping("/login")
+    public ResponseEntity<String> auth(Authentication authentication) {
+        try {
+            authentication.getPrincipal();
+            return new ResponseEntity<>("Вы успешно авторизовались", HttpStatus.OK);
+        } catch (NullPointerException npe) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
     }
 }

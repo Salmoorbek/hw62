@@ -94,7 +94,7 @@ public class UserDao extends BaseDao{
     }
 
     public User login(String accname, String password) {
-        String sql = "select * from users where accname = ? and password = ?";
+        String sql = "select * from users where email = ? and password = ?";
         return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), accname, password);
     }
 

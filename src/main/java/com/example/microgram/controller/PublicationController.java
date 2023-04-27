@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/publications")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:63343")
 public class PublicationController {
     private final PublicationService publicationsService;
 
@@ -35,5 +36,9 @@ public class PublicationController {
             return ResponseEntity.noContent().build();
 
         return ResponseEntity.notFound().build();
+    }
+    @GetMapping("/takePublications")
+    public ResponseEntity<List<PublicationDto>> getAllPubs(){
+        return new ResponseEntity<>(publicationsService.getAllPubs(),HttpStatus.OK);
     }
 }

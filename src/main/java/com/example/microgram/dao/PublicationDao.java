@@ -23,14 +23,14 @@ public class PublicationDao extends BaseDao{
         jdbcTemplate.execute("CREATE TABLE if not exists publications (" +
                 "publication_id SERIAL PRIMARY KEY, " +
                 "user_id INTEGER, " +
-                "image TEXT, " +
+                "img TEXT, " +
                 "description TEXT, " +
-                "publication_date TEXT, " +
+                "publicationTime TEXT, " +
                 "FOREIGN KEY (user_id) REFERENCES users(userId))");
 
     }
     public void saveAll(List<Publication> publications) {
-        String sql = "INSERT INTO publications (user_id, image, description, publication_date)" +
+        String sql = "INSERT INTO publications (user_id, img, description, publicationTime)" +
                 "VALUES (?,?,?,?)";
         jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
             @Override
@@ -66,9 +66,9 @@ public class PublicationDao extends BaseDao{
 
     public List<Publication> getPublicationsForUserBySubscriptions(int userId) {
         String query = "select\n" +
-                "    p.image,\n" +
+                "    p.img,\n" +
                 "    p.description,\n" +
-                "    p.publication_date,\n" +
+                "    p.publicationTime,\n" +
                 "    s.subscribedto\n" +
                 "    from \"publications\" as p\n" +
                 "inner join \"users\" as u\n" +
@@ -79,7 +79,7 @@ public class PublicationDao extends BaseDao{
         return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(Publication.class), userId);
     }
     public void save(Publication publication) {
-        String sql = "insert into publications (image, description, publication_date) " +
+        String sql = "insert into publications (img, description, publicationTime) " +
                 "values(?,?,?)";
         jdbcTemplate.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql);

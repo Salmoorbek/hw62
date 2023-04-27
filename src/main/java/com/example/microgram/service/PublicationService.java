@@ -30,6 +30,12 @@ public class PublicationService {
                 .map(PublicationDto::from)
                 .collect(Collectors.toList());
     }
+    public List<PublicationDto> getAllPubs() {
+        return publicationDao.getAllPubs()
+                .stream()
+                .map(PublicationDto::from)
+                .collect(Collectors.toList());
+    }
 
     public PublicationDto addPublication(String img, String descr, Authentication authentication) {
         User user = (User) authentication.getPrincipal();

@@ -30,12 +30,12 @@ public class UserService {
         return userDao.isRegisteredEmail(email);
     }
 
-    public String login(String accname, String password) {
-        UserDto userDtos = UserDto.from(userDao.login(accname, password));
-        if (userDtos != null)
-            return "Вы зашли";
-        else
-            return "Такого пользователя нет";
+    public UserDto login(String accname, String password) {
+        return UserDto.from(userDao.login(accname, password));
+//        if (userDtos != null)
+//            return "Вы зашли";
+//        else
+//            return "Такого пользователя нет";
     }
 
     public UserDto register(String name, String email, String password) {

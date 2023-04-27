@@ -1,0 +1,55 @@
+.post {
+    position: relative;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.like-button, .comment-button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.save-button.clicked i {
+    color: red;
+}
+
+.post img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+}
+
+.post h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+#posts-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.like-button.clicked i {
+    color: red;
+}
+.like-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+}
+
+.like-heart.active {
+    mix-blend-mode: revert;
+    color: red;
+}

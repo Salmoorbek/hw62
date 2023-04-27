@@ -54,11 +54,11 @@ public class InitDatabase {
 
     private List<Publication> createPublications() {
         List<Publication> publications = new ArrayList<>();
-        publications.add(new Publication(1,"","qwertyuiop", LocalDateTime.now(),1));
-        publications.add(new Publication(2,"","123456789",LocalDateTime.now(),1));
-        publications.add(new Publication(3,"","cmithlulg",LocalDateTime.now(),2));
-        publications.add(new Publication(3,"","qwert",LocalDateTime.now(),3));
-        publications.add(new Publication(3,"","asdasda",LocalDateTime.now(),4));
+        publications.add(new Publication(1,"../static/images/man.jpg","qwertyuiop", LocalDateTime.now(),1));
+        publications.add(new Publication(2,"../static/images/mandalorian.jpg","123456789",LocalDateTime.now(),1));
+        publications.add(new Publication(3,"../static/images/microgram.jpg","cmithlulg",LocalDateTime.now(),2));
+        publications.add(new Publication(3,"../static/images/mandalorian.jpg","qwert",LocalDateTime.now(),3));
+        publications.add(new Publication(3,"../static/images/man.jpg","asdasda",LocalDateTime.now(),4));
         return publications;
     }
     private List<Comment> createComments() {
