@@ -239,6 +239,8 @@ function onLoginHandler(e) {
     loginForm.reset();
 }
 
+let email;
+
 async function authentication() {
     let userFromStorage = localStorage.getItem("user")
     let userAuth = JSON.parse(userFromStorage)
@@ -255,7 +257,7 @@ async function authentication() {
                 throw new Error(response.status);
             }
             hideSplashScreen()
-            let email = document.createElement("span")
+            email = document.createElement("span")
             email.id = "name"
             email.setAttribute("style", "color: #fff; text-align: right;")
             let button = document.getElementById("closeButton")
@@ -286,4 +288,7 @@ closeButton.addEventListener("click", function () {
     mainBlock.style.display = 'none';
     localStorage.removeItem('user');
     localStorage.clear()
+    if (email) { // проверяем, есть ли элемент email
+        email.remove(); // удаляем элемент, если он существует
+    }
 })
